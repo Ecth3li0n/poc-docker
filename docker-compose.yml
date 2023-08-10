@@ -1,0 +1,22 @@
+version: '3'
+services:
+  app:
+    container_name: mon-app
+    build: ./app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/usr/src/app
+    depends_on:
+      - db
+
+  db:
+    image: postgis/postgis
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
