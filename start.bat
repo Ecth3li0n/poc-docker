@@ -23,7 +23,7 @@ IF ERRORLEVEL 1 (
 )
 
 cd app
-npm install
+call npm install
 cd ..
 docker-compose up --build
 
