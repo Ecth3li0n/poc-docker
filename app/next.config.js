@@ -2,12 +2,13 @@ const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpackDevMiddleware: (config) => {
-    // Activer le polling
-    config.watchOptions = {
-      poll: 1000, // Vérifier les modifications toutes les secondes
-      aggregateTimeout: 300, // Regrouper plusieurs modifications en une seule recompilation (attendre jusqu'à 300ms)
-    };
+  webpack: (config, { dev, isServer }) => {
+    if (dev && isServer) {
+      config.watchOptions = {
+        poll: 1000,
+        aggregateTimeout: 300,
+      };
+    }
     return config;
   },
   sassOptions: {
