@@ -1,3 +1,5 @@
+const path = require('path');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpackDevMiddleware: (config) => {
@@ -7,6 +9,9 @@ const nextConfig = {
       aggregateTimeout: 300, // Regrouper plusieurs modifications en une seule recompilation (attendre jusqu'à 300ms)
     };
     return config;
+  },
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'src', 'scss', 'utils')],
   },
 };
 

@@ -1,7 +1,10 @@
-import styles from "./page.module.css";
+import HelloWorldWave from '@/components/HelloWolrdWave';
+import styles from '@/scss/pages/Home.module.scss';
 
 export default function Home() {
   return (
-    <main className={styles.main}>Hello World ! This is a new message</main>
+    <main className={styles.main}>
+      <HelloWorldWave />
+    </main>
   );
 }

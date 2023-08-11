@@ -1,0 +1,30 @@
+@import 'variables';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.wave {
+  display: inline-block;
+  animation: waveAnimation 4s infinite ease-in-out;
+  color: $color-primary;
+}
+
+@keyframes waveAnimation {
+  0%,
+  20%,
+  100% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-30px);
+  }
+  15% {
+    transform: translateY(10px);
+  }
+}
